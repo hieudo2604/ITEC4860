@@ -15,6 +15,7 @@ function Sidebar({ handleChange, isChecked }) {
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/">Dashboard</a></li>
+            <li><a href="/">About</a></li>
           </ul>
           <hr></hr>
         </nav>
