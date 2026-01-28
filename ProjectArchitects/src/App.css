@@ -1,0 +1,19 @@
+/* Main content default (light mode) */
+.content.light {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode */
+.content.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Optional: make main content take full width minus sidebar */
+.content {
+  margin-left: 200px; /* width of sidebar */
+  padding: 2rem;
+  min-height: 100vh;
+}
