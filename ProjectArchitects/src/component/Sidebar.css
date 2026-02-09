@@ -5,12 +5,41 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 200px;
+  width: 225px;
   display: flex;
   flex-direction: column;
   transition: width 0.3s ease;
   overflow-x: hidden;
   z-index: 10;
+}
+
+.sidebar.closed {
+  width: 60px; 
+}
+
+.sidebar-nav ul.collapsed .sidebar-text {
+  display: none;
+}
+
+/* Align material icons vertically with text */
+.sidebar-nav li i.material-icons {
+  vertical-align: text-bottom;   
+  font-size: 20px;          
+  margin-right: 8px;       
+}
+
+h4 i.material-icons {
+  vertical-align: text-bottom;   
+  font-size: 20px;          
+  margin-left: 10px;
+}
+
+h4.collapsed .h4-text{
+  display: none;
+}
+
+.no-lines li {
+  border-bottom: none !important;
 }
 
 .sidebar-nav li a {
@@ -74,3 +103,5 @@
 .toggle:checked + label::after {
   transform: translateX(1em);
 }
+
+

@@ -1,21 +1,39 @@
-import useLocalStorage from "use-local-storage";
 import "./Sidebar.css";
 
-function Sidebar({ handleChange, isChecked }) {
-  const [isOpen, setIsOpen] = useLocalStorage("isOpen", false);
-
+function Sidebar({ handleChange, isChecked, setActivePage, isOpen, setIsOpen }) {
   return (
     <>
       <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
-        <div className="sidebar-header">
-          <h3 className="w3-padding-small">Project Architect</h3>
+        <div className="sidebar-header" onClick={() => setIsOpen(!isOpen)}>
+          <h4 className="w3-padding-small">
+            <span className="sidebar-title">{isOpen ? "Project Architects" : ""}</span>
+            <i className="material-icons w3-hover-grey">menu</i>
+          </h4>
         </div>
 
         <nav className="sidebar-nav">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Dashboard</a></li>
-            <li><a href="/">About</a></li>
+          <ul className={`w3-ul w3-hoverable no-lines ${isOpen ? "" : "collapsed"}`}>
+
+            <li className= "w3-hover-grey" onClick={() => setActivePage("home")}> 
+              <i className="material-icons">home</i>
+              <span className="sidebar-text">Home</span>
+            </li>
+
+            <li className= "w3-hover-grey" onClick={() => setActivePage("dashboard")}>
+              <i className="material-icons">dashboard</i>
+              <span className="sidebar-text">Dashboard</span>
+            </li>
+
+            <li className= "w3-hover-grey" onClick={() => setActivePage("about")}>
+              <i className="material-icons">info</i>
+              <span className="sidebar-text">About</span>
+            </li>
+
+            <li className= "w3-hover-grey" onClick={() => setActivePage("logout")}>
+              <i className="material-icons">logout</i>
+              <span className="sidebar-text">Logout</span>
+            </li>
+
           </ul>
           <hr></hr>
         </nav>
@@ -24,11 +42,11 @@ function Sidebar({ handleChange, isChecked }) {
           <input
             type="checkbox"
             id="check"
-            className="toggle"
+            className="toggle" 
             onChange={handleChange}
             checked={isChecked}
           />
-          <label htmlFor="check" className="w3-large"> Dark Mode </label>
+          <label htmlFor="check" className="w3-large"> {isOpen ? "Dark Mode" : ""} </label>
         </div>
       </div>
 
